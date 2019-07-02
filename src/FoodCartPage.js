@@ -9,7 +9,7 @@ const FoodCartPage = ({item, store}) => {
     <div>
       {
         Object.keys(itemIds).map(id => {
-          // console.log(itemIds[id]) // Count
+          // console.log(id + " --> " + itemIds[id]) // Count
           return (
             <span key={id}>{getCarts[id].name}</span>
           )

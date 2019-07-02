@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { observer, inject } from "mobx-react";
 import item_options from "./food/options.json";
+import FoodDetailsPage from "./FoodDetailsPage";
 
 const useStyles = makeStyles({
   card: {
@@ -26,6 +27,7 @@ const FoodListPage = ({ item, store }) => {
       {(store.searchvalue === "" ||
         item.name.toLowerCase().includes(store.searchvalue)) && (
         <React.Fragment>
+          <FoodDetailsPage />
           <CardActionArea>
             <CardMedia
               className={classes.media}
@@ -42,8 +44,17 @@ const FoodListPage = ({ item, store }) => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
-              Share
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => {
+                let item_option = item_options[item.item_id];
+                if (item_option.length > 0) {
+                  store.setCurrentItem(item.item_id);
+                } else store.AddItem(item.item_id);
+              }}
+            >
+              Add To Cart
             </Button>
             {item_options[item.item_id].length > 0 && (
               <Button size="small" color="primary" onClick={() => {}}>

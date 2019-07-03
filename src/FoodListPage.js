@@ -10,11 +10,9 @@ import Typography from "@material-ui/core/Typography";
 import { observer, inject } from "mobx-react";
 import item_options from "./food/options.json";
 import store from "./mobx/store.js";
+import "./FoodListPage.scss";
 
 const useStyles = makeStyles({
-  card: {
-    maxWidth: 345
-  },
   media: {
     height: 140
   }
@@ -47,7 +45,8 @@ const FoodListPage = ({ item }) => {
                     color="textSecondary"
                     component="p"
                   >
-                    {item.description}
+                    {item.description.substr(0, 59)}{" "}
+                    {item.description.substr(59) && "..."}
                   </Typography>
                 </CardContent>
               </CardActionArea>

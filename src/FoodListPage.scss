@@ -13,6 +13,40 @@
       flex: 1 1 auto;
       flex-direction: column;
       align-items: unset;
+
+      &:hover {
+        .MuiCardActionArea-focusHighlight {
+          display: none;
+        }
+
+        .MuiTouchRipple-root {
+          display: none;
+        }
+      }
     }
+  }
+}
+
+.List_Item_Box_Main {
+  .MuiPaper-root {
+    background: none;
+    box-shadow: none;
+  }
+
+  .MuiCardMedia-root {
+    border-radius: 14px;
+  }
+
+  .MuiCardContent-root {
+    padding: 20px 0px 0px 0px;
+  }
+
+  .MuiTypography-h5 {
+    font-weight: 500;
+    font-size: 22px;
+  }
+
+  .MuiCardActions-root {
+    padding: 0px;
   }
 }

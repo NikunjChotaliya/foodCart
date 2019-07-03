@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap");
+
+.Main_Header {
+  padding: 30px 0px 0px 0px;
+
+  .MuiAppBar-colorPrimary {
+    background: none;
+    box-shadow: none;
+  }
+
+  .MuiToolbar-gutters {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 20px 40px 20px 40px;
+    background: #fff;
+  }
+  .Main_Logo {
+    // max-width: 300px;
+    flex: 0 0 300px;
+    padding-right: 60px;
+  }
+
+  .makeStyles-search-7 {
+    flex: 1 1 auto;
+
+    .MuiInputBase-root {
+      width: 100%;
+    }
+    input {
+      background: #f8f8f8;
+      width: 100%;
+      height: 44px;
+      border-radius: 100px;
+      color: #333;
+    }
+  }
+
+  .MuiSvgIcon-root {
+    fill: #000;
+  }
+  .menu_button {
+    flex: 0 0 100px;
+    display: flex;
+    justify-content: flex-end;
+
+    .Item_Counter {
+      position: absolute;
+      top: 5px;
+      right: 0px;
+      background: #6555c3;
+      height: 18px;
+      width: 18px;
+      font-size: 10px;
+      font-weight: 600;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .MuiIconButton-edgeEnd {
+      position: relative;
+    }
+  }
+
+  .makeStyles-drawerPaper-11 {
+    width: 350px;
+  }
+
+  .MuiDrawer-paperAnchorDockedRight {
+    background: #f8f8f8;
+    border-left: 1px solid #e2e2e2;
+  }
+}

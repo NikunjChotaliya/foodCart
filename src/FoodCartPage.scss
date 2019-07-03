@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap");
+
+.cart_item_list {
+  display: flex;
+  padding: 0px 20px 30px 20px;
+  align-items: flex-start;
+
+  .cart_image {
+    flex: 0 0 70px;
+    border-radius: 10px;
+    padding: 0px 0px 0px 0px;
+    overflow: hidden;
+    height: 50px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .cart_item_details {
+    flex: 1 1 auto;
+    padding: 0px 0px 0px 20px;
+  }
+
+  .cart_item_name_block {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 6px 0;
+
+    .cart_item_name {
+      color: #171717;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .cart_item_name {
+      padding: 0px 10px 0px 0px;
+    }
+
+    .cart_item_price_main {
+      padding: 0px 0px 0px 10px;
+      color: #464646;
+    }
+  }
+
+  .cart_item_addons_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 6px 0;
+
+    .cart_item_addons_name {
+      color: #3e3e3e;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .cart_item_addons_price {
+      padding: 0px 0px 0px 10px;
+      font-size: 13px;
+      color: #44ad6a;
+    }
+  }
+
+  .cart_item_price_main {
+  }
+
+  .cart_item_action_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0 0 0;
+
+    .Cart_lable {
+      display: block;
+      font-size: 10px;
+      padding: 0px 0px 4px 0px;
+    }
+
+    .cart_item_qty {
+      flex: 0 0 50px;
+      .makeStyles-textField-106 {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+
+        .MuiInputBase-input {
+          width: 100%;
+          background: #fff;
+          border-radius: 6px;
+          border: 1px solid #dcdcdc;
+          text-indent: 5px;
+          height: 10px;
+          font-size: 13px;
+          font-weight: 500;
+          text-align: center;
+        }
+
+        .MuiInput-underline {
+          &:before {
+            display: none;
+          }
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .Cart_Item_Total {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+
+    .cart_item_delete {
+      .makeStyles-icon-105 {
+        margin: 0px;
+      }
+    }
+  }
+}

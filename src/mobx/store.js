@@ -7,15 +7,20 @@ class TokenStore {
   searchvalue = "";
 
   setCurrentItem = item => {
-    let { item_id, ...restItem } = item;
-    this.currentId = { item_id, ...restItem };
+    if (item) {
+      let { item_id, ...restItem } = item;
+      this.currentId = { item_id, ...restItem };
+    } else this.currentId = "";
   };
 
-  AddItem = item => {
-    let { item_id, ...restItem } = item;
+  AddItem = (item, qty) => {
+    let { item_id, count, ...restItem } = item;
     if (this.itemIds[item_id]) {
       this.itemIds[item_id] = {
-        count: this.itemIds[item_id]["count"] + 1,
+        count:
+          qty === undefined
+            ? parseInt(this.itemIds[item_id]["count"]) + 1
+            : qty,
         ...restItem
       };
     } else {
@@ -23,10 +28,14 @@ class TokenStore {
     }
   };
 
+  // removeItem = item_id => {
+  //   if (this.itemIds[item_id] && this.itemIds[item_id]["count"] > 1) {
+  //     this.itemIds[item_id]["count"] = this.itemIds[item_id]["count"] - 1;
+  //   } else delete this.itemIds[item_id];
+  // };
+
   removeItem = item_id => {
-    if (this.itemIds[item_id] && this.itemIds[item_id]["count"] > 1) {
-      this.itemIds[item_id]["count"] = this.itemIds[item_id]["count"] - 1;
-    } else delete this.itemIds[item_id];
+    delete this.itemIds[item_id];
   };
 
   AddAddonItem = (item, radioItem, checkBoxItems) => {

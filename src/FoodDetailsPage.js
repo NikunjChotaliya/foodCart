@@ -124,7 +124,7 @@ function FoodDetailsPage() {
                             }}
                           />
                         }
-                        label={choice.name}
+                        label={choice.name + " $" + choice.price.base_unit}
                       />
                     );
                   })}

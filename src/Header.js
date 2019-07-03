@@ -21,6 +21,12 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { inject, observer } from "mobx-react";
 import FoodDetailsPage from "./FoodDetailsPage";
+import FoodCartPage from "./FoodCartPage";
+import "./Header.scss";
+import logo from "./assests/images/Logo.svg";
+import cart from "./assests/images/cart-icon.svg";
+import store from "./mobx/store";
+import { toJS } from "mobx";
 
 const drawerWidth = 240;
 
@@ -117,7 +123,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Header({ store }) {
+function Header() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -131,79 +137,94 @@ function Header({ store }) {
   }
 
   return (
-    <div className={classes.root}>
-      {store.currentId && <FoodDetailsPage />}
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
-        })}
-      >
-        <Toolbar>
-          <Typography variant="h6" noWrap className={classes.title}>
-            Food Listing
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+    <div className="Main_Header">
+      <div className={classes.root}>
+        {store.currentId && <FoodDetailsPage />}
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open
+          })}
+        >
+          <Toolbar className="123">
+            {/* <Typography variant="h6" noWrap className={classes.title}>
+              Food Listing
+            </Typography> */}
+            <div className="Main_Logo">
+              <img src={logo} />
             </div>
-            <InputBase
-              placeholder="Search…"
-              onChange={e => store.setSearchName(e.target.value)}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ "aria-label": "Search" }}
-            />
-          </div>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                onChange={e => store.setSearchName(e.target.value)}
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput
+                }}
+                inputProps={{ "aria-label": "Search" }}
+              />
+            </div>
 
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            className={clsx(open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open
-        })}
-      >
-        <div className={classes.drawerHeader} />
-      </main>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="right"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </div>
-        {/* <List>
+            <div className="menu_button">
+              <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                edge="end"
+                onClick={handleDrawerOpen}
+                className={clsx(open && classes.hide)}
+              >
+                {/* <MenuIcon /> */}
+                {Object.keys(store.itemIds).length > 0 && (
+                  <span className="Item_Counter">
+                    {Object.keys(store.itemIds).length}
+                  </span>
+                )}
+                <img src={cart} />
+              </IconButton>
+            </div>
+          </Toolbar>
+        </AppBar>
+        <main
+          className={clsx(classes.content, {
+            [classes.contentShift]: open
+          })}
+        >
+          <div className={classes.drawerHeader} />
+        </main>
+        <Drawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="right"
+          open={open}
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronLeftIcon />
+              ) : (
+                // <img src={cart} />
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </div>
+          <FoodCartPage />
+          {/* <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
             </ListItem>
-          ))}
-        </List> */}
-      </Drawer>
+            ))}
+          </List> */}
+        </Drawer>
+      </div>
     </div>
   );
 }

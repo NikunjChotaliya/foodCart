@@ -1,11 +1,49 @@
-.FoodListPage_Fixed_Container {
-  display: grid;
-  max-width: 1440px;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(289px, 0fr));
-  grid-column-gap: 30px;
-  align-items: stretch;
-  grid-row-gap: 40px;
-  margin: 0 auto;
-  padding: 0px 0px 50px 0px;
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap");
+
+body {
+  background: none !important;
+  background-color: transparent !important;
+  font-family: "Poppins", sans-serif !important;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  font-family: "Poppins", sans-serif !important;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.FoodListPage_Fixed_Container {
+  max-width: 1320px;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 0px 20px 50px 20px;
+}
+.inner-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(289px, 1fr));
+  grid-column-gap: 40px;
+  align-items: stretch;
+  grid-row-gap: 70px;
+}
+
+.Main_Banner {
+  padding: 0px 0px 70px 0px;
+}
+
+// .main_page_full {
+//   background: #fcdc6c;
+// }
+
+// .main_page_fixed {
+//   max-width: 1350px;
+//   background: #fff;
+//   margin: 0 auto;
+//   padding: 0px 90px;
+// }

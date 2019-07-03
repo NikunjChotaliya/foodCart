@@ -1,0 +1,11 @@
+.FoodListPage_Fixed_Container {
+  display: grid;
+  max-width: 1440px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(289px, 0fr));
+  grid-column-gap: 30px;
+  align-items: stretch;
+  grid-row-gap: 40px;
+  margin: 0 auto;
+  padding: 0px 0px 50px 0px;
+}

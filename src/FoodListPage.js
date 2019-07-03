@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { observer, inject } from "mobx-react";
 import item_options from "./food/options.json";
-import FoodDetailsPage from "./FoodDetailsPage";
+import store from "./mobx/store.js";
 
 const useStyles = makeStyles({
   card: {
@@ -20,51 +20,61 @@ const useStyles = makeStyles({
   }
 });
 
-const FoodListPage = ({ item, store }) => {
+const FoodListPage = ({ item }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <React.Fragment>
       {(store.searchvalue === "" ||
         item.name.toLowerCase().includes(store.searchvalue)) && (
-        <React.Fragment>
-          <FoodDetailsPage />
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image={item.picture_url}
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {item.name}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                {item.description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button
-              size="small"
-              color="primary"
-              onClick={() => {
-                let item_option = item_options[item.item_id];
-                if (item_option.length > 0) {
-                  store.setCurrentItem(item.item_id);
-                } else store.AddItem(item.item_id);
-              }}
-            >
-              Add To Cart
-            </Button>
-            {item_options[item.item_id].length > 0 && (
-              <Button size="small" color="primary" onClick={() => {}}>
-                Details
-              </Button>
-            )}
-          </CardActions>
-        </React.Fragment>
+        <div className="List_Item_Box_Main">
+          <Card className={classes.card}>
+            {/* {(store.searchvalue === "" ||
+            item.name.toLowerCase().includes(store.searchvalue)) && ( */}
+            <React.Fragment>
+              {/* <FoodDetailsPage /> */}
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image={item.picture_url}
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {item.name}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {item.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button
+                  size="small"
+                  color="primary"
+                  onClick={() => {
+                    let item_option = item_options[item.item_id];
+                    if (item_option.length > 0) {
+                      store.setCurrentItem(item);
+                    } else store.AddItem(item);
+                  }}
+                >
+                  Add To Cart
+                </Button>
+                {item_options[item.item_id].length > 0 && (
+                  <Button size="small" color="primary" onClick={() => {}}>
+                    Details
+                  </Button>
+                )}
+              </CardActions>
+            </React.Fragment>
+          </Card>
+        </div>
       )}
-    </Card>
+    </React.Fragment>
   );
 };
 

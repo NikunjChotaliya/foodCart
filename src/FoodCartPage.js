@@ -2,10 +2,15 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 import { getCarts } from "./services/common.services";
 import { toJS } from "mobx";
+import store from "./mobx/store";
 
-const FoodCartPage = ({ item, store }) => {
+const FoodCartPage = () => {
   let itemIds = store.itemIds;
   console.log(toJS(itemIds));
+  let ids = Object.keys(itemIds);
+  ids.forEach(id => {
+    // console.log(itemIds[id]);
+  });
 
   return (
     <div>

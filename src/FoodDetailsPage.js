@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
+// import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import store from "./mobx/store";
 import { inject, observer } from "mobx-react";
@@ -15,16 +15,20 @@ import {
   Checkbox
 } from "@material-ui/core";
 
-function FoodDetailsPage({}) {
+function FoodDetailsPage() {
   const [open, setOpen] = useState(true);
   const [radioboxVal, setRadioVal] = useState("");
   const [checkboxVal, setCheckboxVal] = useState([]);
   let radio_obj = [],
     checkbox_obj = [];
-  let item_detail = item_options[store.currentId];
+  let item_detail =
+    item_options[store.currentId ? store.currentId.item_id : ""];
   item_detail &&
     item_detail.forEach(detail => {
-      if (detail.uitype.toLowerCase() === "radio") {
+      if (
+        detail.uitype.toLowerCase() === "radio" ||
+        detail.uitype.toLowerCase() === "radio_qty"
+      ) {
         radio_obj.push(detail);
       } else {
         checkbox_obj.push(detail);
@@ -54,6 +58,8 @@ function FoodDetailsPage({}) {
 
   function addToCart() {
     store.AddAddonItem(store.currentId, radioboxVal, checkboxVal);
+    setRadioVal("");
+    setCheckboxVal([]);
   }
 
   return (
@@ -68,9 +74,9 @@ function FoodDetailsPage({}) {
           >
             <DialogTitle id="confirmation-dialog-title">Item Addon</DialogTitle>
             {radio_obj.length > 0 &&
-              radio_obj.map(obj => {
+              radio_obj.map((obj, i) => {
                 return (
-                  <React.Fragment>
+                  <React.Fragment key={i}>
                     <DialogContent dividers>
                       <RadioGroup
                         // ref={radioGroupRef}
@@ -79,10 +85,10 @@ function FoodDetailsPage({}) {
                         value={radioboxVal}
                         onChange={handleChange}
                       >
-                        {obj.choices.map(choice => (
+                        {obj.choices.map((choice, index) => (
                           <FormControlLabel
                             value={choice.name}
-                            key={choice.name}
+                            key={index}
                             control={<Radio />}
                             label={choice.name + " $" + choice.price.base_unit}
                           />
@@ -96,9 +102,10 @@ function FoodDetailsPage({}) {
             {checkbox_obj.length > 0 && (
               <React.Fragment>
                 <DialogContent dividers>
-                  {checkbox_obj[0].choices.map(choice => {
+                  {checkbox_obj[0].choices.map((choice, i) => {
                     return (
                       <FormControlLabel
+                        key={i}
                         control={
                           <Checkbox
                             checked={

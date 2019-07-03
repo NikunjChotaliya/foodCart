@@ -20,6 +20,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { inject, observer } from "mobx-react";
+import FoodDetailsPage from "./FoodDetailsPage";
 
 const drawerWidth = 240;
 
@@ -131,6 +132,7 @@ function Header({ store }) {
 
   return (
     <div className={classes.root}>
+      {store.currentId && <FoodDetailsPage />}
       <CssBaseline />
       <AppBar
         position="fixed"

@@ -30,7 +30,7 @@ img {
   grid-template-columns: repeat(auto-fill, minmax(289px, 1fr));
   grid-column-gap: 40px;
   align-items: stretch;
-  grid-row-gap: 70px;
+  grid-row-gap: 50px;
 }
 
 .Main_Banner {
@@ -47,3 +47,9 @@ img {
 //   margin: 0 auto;
 //   padding: 0px 90px;
 // }
+
+@media (max-width: 767px) {
+  .Main_Banner {
+    padding: 0px 0px 20px 0px;
+  }
+}

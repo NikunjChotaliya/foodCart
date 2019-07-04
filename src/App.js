@@ -4,7 +4,6 @@ import Store from "./mobx/store";
 import items from "./food/items.json";
 import FoodListPage from "./FoodListPage";
 import Header from "./Header";
-import FoodCartPage from "./FoodCartPage";
 import "./app.scss";
 import FoodBanner from "./assests/images/food-ecommerce.png";
 

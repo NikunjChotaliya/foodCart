@@ -33,8 +33,12 @@
     box-shadow: none;
   }
 
+  .MuiCardActionArea-root {
+    cursor: default;
+  }
+
   .MuiCardMedia-root {
-    border-radius: 14px;
+    border-radius: 6px;
   }
 
   .MuiCardContent-root {
@@ -42,11 +46,29 @@
   }
 
   .MuiTypography-h5 {
-    font-weight: 500;
-    font-size: 22px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #5b46a7;
   }
 
   .MuiCardActions-root {
     padding: 0px;
+  }
+
+  .MuiButton-sizeSmall {
+    padding: 0 0 0 0;
+    color: #f46e3e;
+    font-weight: 600;
+    margin: 12px 0 0 0;
+    transition: all 300ms ease;
+
+    &:hover {
+      background: none;
+      color: #ffbc07;
+    }
+  }
+
+  .MuiButton-label {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
   }
 }

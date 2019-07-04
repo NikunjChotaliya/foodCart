@@ -23,7 +23,7 @@ const FoodListPage = ({ item }) => {
   return (
     <React.Fragment>
       {(store.searchvalue === "" ||
-        item.name.toLowerCase().includes(store.searchvalue)) && (
+        item.name.toLowerCase().includes(store.searchvalue.toLowerCase())) && (
         <div className="List_Item_Box_Main">
           <Card className={classes.card}>
             {/* {(store.searchvalue === "" ||
@@ -63,11 +63,11 @@ const FoodListPage = ({ item }) => {
                 >
                   Add To Cart
                 </Button>
-                {item_options[item.item_id].length > 0 && (
+                {/* {item_options[item.item_id].length > 0 && (
                   <Button size="small" color="primary" onClick={() => {}}>
                     Details
                   </Button>
-                )}
+                )} */}
               </CardActions>
             </React.Fragment>
           </Card>

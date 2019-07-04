@@ -5,18 +5,9 @@ import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-// import List from '@material-ui/core/List';
-import Typography from "@material-ui/core/Typography";
-// import Divider from '@material-ui/core/Divider';
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { inject, observer } from "mobx-react";
@@ -26,7 +17,6 @@ import "./Header.scss";
 import logo from "./assests/images/Logo.svg";
 import cart from "./assests/images/cart-icon.svg";
 import store from "./mobx/store";
-import { toJS } from "mobx";
 
 const drawerWidth = 240;
 
@@ -152,14 +142,14 @@ function Header() {
               Food Listing
             </Typography> */}
             <div className="Main_Logo">
-              <img src={logo} />
+              <img src={logo} alt="Logo" />
             </div>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                placeholder="Search From Menu"
                 onChange={e => store.setSearchName(e.target.value)}
                 classes={{
                   root: classes.inputRoot,
@@ -183,7 +173,7 @@ function Header() {
                     {Object.keys(store.itemIds).length}
                   </span>
                 )}
-                <img src={cart} />
+                <img src={cart} alt="cart" />
               </IconButton>
             </div>
           </Toolbar>
@@ -213,16 +203,39 @@ function Header() {
                 <ChevronRightIcon />
               )}
             </IconButton>
+
+            <h3>My Cart</h3>
           </div>
           <FoodCartPage />
-          {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-            </ListItem>
-            ))}
-          </List> */}
+
+          {/* {
+            Object.keys(store.itemIds).length > 0 &&
+          } */}
+          {/* <div className="checkout_content">
+            <div className="cart_item_name_block">
+              <span className="cart_item_name">Item Subtotal</span>
+              <span className="cart_item_price_main">${store.total}</span>
+            </div>
+
+            <div className="cart_item_name_block">
+              <span className="cart_item_name">Delivery Fee</span>
+              <span className="cart_item_price_main">$00</span>
+            </div>
+
+            <div className="cart_item_name_block">
+              <span className="cart_item_name">Sales Tax</span>
+              <span className="cart_item_price_main">$00</span>
+            </div>
+
+            <div className="cart_item_name_block">
+              <span className="cart_item_name">Total</span>
+              <span className="cart_item_price_main">${store.total}</span>
+            </div>
+
+            <div className="cart_item_name_block">
+              <button>Proceed to Checkout $45.85</button>
+            </div>
+          </div> */}
         </Drawer>
       </div>
     </div>

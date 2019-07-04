@@ -69,13 +69,21 @@
   }
 
   .MuiDrawer-paperAnchorDockedRight {
-    background: #f8f8f8;
+    background: #2b263c;
     border-left: 1px solid #e2e2e2;
     display: flex;
     flex-direction: column;
 
     .makeStyles-drawerHeader-12 {
       flex: 0 0 64px;
+
+      .MuiSvgIcon-root {
+        fill: #fff;
+      }
+
+      h3 {
+        color: #fff;
+      }
     }
 
     .cart_list_main {
@@ -85,7 +93,7 @@
   }
 
   .checkout_content {
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #433e56;
     padding: 8px 0 7px 0;
     .cart_item_name_block {
       display: flex;
@@ -96,18 +104,18 @@
     }
 
     .cart_item_name {
-      color: rgba(0, 0, 0, 0.54);
+      color: rgb(147, 141, 167);
     }
 
     .cart_item_price_main {
-      color: #171717;
+      color: #fff;
     }
 
     .cart_item_name_block {
       button {
         width: 100%;
         border: none;
-        background: #503e9d;
+        background: #fa6b3a;
         color: #fff;
         border-radius: 8px;
         height: 40px;

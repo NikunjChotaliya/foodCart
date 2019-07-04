@@ -5,7 +5,7 @@ import items from "./food/items.json";
 import FoodListPage from "./FoodListPage";
 import Header from "./Header";
 import "./app.scss";
-import FoodBanner from "./assests/images/food-ecommerce.png";
+import FoodBanner from "./assests/images/food-ecommerce_new.png";
 
 function App() {
   return (

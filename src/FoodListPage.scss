@@ -28,6 +28,11 @@
 }
 
 .List_Item_Box_Main {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 0px 0px 20px 0px;
+
   .MuiPaper-root {
     background: none;
     box-shadow: none;
@@ -38,11 +43,11 @@
   }
 
   .MuiCardMedia-root {
-    border-radius: 6px;
+    border-radius: 6px 6px 0px 0px;
   }
 
   .MuiCardContent-root {
-    padding: 20px 0px 0px 0px;
+    padding: 20px 20px 0px 20px;
   }
 
   .MuiTypography-h5 {
@@ -52,7 +57,7 @@
   }
 
   .MuiCardActions-root {
-    padding: 0px;
+    padding: 0px 20px;
   }
 
   .MuiButton-sizeSmall {
@@ -64,7 +69,7 @@
 
     &:hover {
       background: none;
-      color: #ffbc07;
+      color: #5b46a7;
     }
   }
 

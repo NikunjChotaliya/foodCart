@@ -2,7 +2,7 @@
 
 body {
   background: none !important;
-  background-color: transparent !important;
+  background-color: #f3f3f3 !important;
   font-family: "Poppins", sans-serif !important;
 }
 
@@ -28,9 +28,9 @@ img {
 .inner-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(289px, 1fr));
-  grid-column-gap: 40px;
+  grid-column-gap: 30px;
   align-items: stretch;
-  grid-row-gap: 50px;
+  grid-row-gap: 30px;
 }
 
 .Main_Banner {
